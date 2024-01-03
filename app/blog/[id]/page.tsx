@@ -3,32 +3,32 @@ import Image from "next/image";
 import { IBlog } from '@/lib/types';
 import BlogContent from './BlogContent';
 
-// export async function generateStaticParams() {
-// 	const { data: blog } = await fetch(
-// 		process.env.SITE_URL + "/api/blog?id=" + "*"
-// 	).then((res) => res.json());
-// 	return blog;
-// }
+export async function generateStaticParams() {
+	const { data: blog } = await fetch(
+		process.env.SITE_URL + "/api/blog?id=" + "*"
+	).then((res) => res.json());
+	return blog;
+}
 
-// export async function generateMetadata({ params }: { params: { id: string } }) {
-// 	const { data: blog } = await fetch(process.env.SITE_URL + "/api/blog?id=" + params.id
-// 	).then(res => res.json()) as { data: IBlog }
+export async function generateMetadata({ params }: { params: { id: string } }) {
+	const { data: blog } = await fetch(process.env.SITE_URL + "/api/blog?id=" + params.id
+	).then(res => res.json()) as { data: IBlog }
 
-// 	return {
-// 		title: blog?.title,
-// 		authors:{
-// 			name: 'Yusuf M. Afif'
-// 		},
-// 		openGraph: {
-// 			title: blog?.title,
-// 			url: process.env.SITE_URL+"/blog/"+params.id,
-// 			siteName: 'Yusuf M. Afif',
-// 			images: blog?.image_url,
-// 			type: 'website',
-// 		},
-// 		keywords: ['untuk SEO']
-// 	}
-// }
+	return {
+		title: blog?.title,
+		authors:{
+			name: 'Yusuf M. Afif'
+		},
+		openGraph: {
+			title: blog?.title,
+			url: process.env.SITE_URL+"/blog/"+params.id,
+			siteName: 'Yusuf M. Afif',
+			images: blog?.image_url,
+			type: 'website',
+		},
+		keywords: ['untuk SEO']
+	}
+}
 
 export default async function page({ params }: { params: { id: string } }) {
 	const { data: blog } = await fetch(process.env.SITE_URL + "/api/blog?id=" + params.id
