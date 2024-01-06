@@ -38,8 +38,6 @@ export default async function page({ params }: { params: { id: string } }) {
 		return <div>Not found</div>
 	}
 
-
-
 	return (
 		<div className="max-w-5xl mx-auto min-h-screen  pt-10 space-y-10">
 			<div className="sm:px-10 space-y-5">

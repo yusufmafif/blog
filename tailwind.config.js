@@ -6,6 +6,10 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    "./node_modules/flowbite/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./public/**/*.html",
+    "./node_modules/flowbite-react/lib/**/*.js",
 	],
   theme: {
     container: {
@@ -18,8 +22,7 @@ module.exports = {
     extend: {
 
       backgroundImage: {
-        "gradient-dark":
-          "radial-gradient(76.33% 76.59% at 50.15% 6.06%, #1A1A1A 0%, rgba(26, 26, 26, 0.38) 100%)",
+        "white": "radial-gradient(76.33% 76.59% at 50.15% 6.06%, #ffffff 0%, rgba(255, 255, 255, 0.38) 100%)",
       },
       height: {
         "70vh": "70vh",
@@ -86,5 +89,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),  require('flowbite/plugin')],
 }

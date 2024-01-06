@@ -4,19 +4,21 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import { useUser } from "@/lib/store/user";
 import { Profile } from "./Profile";
+import { MobileIcon } from "@radix-ui/react-icons";
 
 
 export default function Navbar() {
-const user = useUser((state) => state.user)
+  const user = useUser((state) => state.user)
 
-    return (
-       <nav className="flex justify-between">
-        <div className="group">
-        <Link href="/" className="text-3xl font-bold">Yusuf M. Afif</Link>
+  return (
+    <nav className="flex justify-between">
+      <div className="group">
+        <Link href="/" className="text-3xl font-bold">Abstain.</Link>
         <div className="h-1 w-0 group-hover:w-full transition-all bg-blue-900"></div>
-        </div>
-      {user?.id ? <Profile/> : <LoginForm/>}
-       </nav>
-    )
- 
+      </div>
+      {user?.id ? <Profile /> : <LoginForm />}
+
+    </nav>
+  )
+
 }
