@@ -29,7 +29,6 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 		keywords: ['untuk SEO']
 	}
 }
-
 export default async function page({ params }: { params: { id: string } }) {
 	const { data: blog } = await fetch(process.env.SITE_URL + "/api/blog?id=" + params.id
 	).then(res => res.json()) as { data: IBlog }
@@ -37,7 +36,6 @@ export default async function page({ params }: { params: { id: string } }) {
 	if (!blog?.id) {
 		return <div>Not found</div>
 	}
-
 	return (
 		<div className="max-w-5xl mx-auto min-h-screen  pt-10 space-y-10">
 			<div className="sm:px-10 space-y-5">

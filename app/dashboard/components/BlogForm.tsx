@@ -23,12 +23,12 @@ import { useState, useTransition } from "react"
 import Image from "next/image"
 import { Textarea } from "@/components/ui/textarea"
 import MarkdownPreview from "./markdown/MarkdownPreview"
-import {BlogFormSchema, BlogFormSchemaType} from "../schema"
+import { BlogFormSchema, BlogFormSchemaType } from "../schema"
 import { IBlogDetail } from "@/lib/types"
 
 
-export default function BlogForm({onHandleSubmit, blog}: {onHandleSubmit: (data: BlogFormSchemaType) => void; blog?: IBlogDetail}) {
-const [isPending, startTransition] = useTransition()
+export default function BlogForm({ onHandleSubmit, blog }: { onHandleSubmit: (data: BlogFormSchemaType) => void; blog?: IBlogDetail }) {
+  const [isPending, startTransition] = useTransition()
   const [isPreview, setPreview] = useState(false)
 
   const form = useForm<z.infer<typeof BlogFormSchema>>({
@@ -55,14 +55,14 @@ const [isPending, startTransition] = useTransition()
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full border rounded-md space-y-6 p-1">
         <div className="p-5 flex items-center flex-wrap justify-between border-b gap-5 ">
           <div className="flex gap-5 items-center flex-wrap">
-            <span role="button" tabIndex={0} className="flex items-center gap-1 border bg-zinc-700 p-2 rounded-md hover:ring-2 hover:ring-zinc-400 transition-all" onClick={() => setPreview(!isPreview && !form.getFieldState("image_url").invalid)}>{isPreview ? <><Pencil1Icon />Edit</> : <><EyeOpenIcon />Preview</>}</span>
+            <span role="button" tabIndex={0} className="flex items-center gap-1 border p-2 rounded-md hover:ring-2 hover:ring-zinc-400 transition-all" onClick={() => setPreview(!isPreview && !form.getFieldState("image_url").invalid)}>{isPreview ? <><Pencil1Icon />Edit</> : <><EyeOpenIcon />Preview</>}</span>
             <FormField
               control={form.control}
               name="is_premium"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="flex items-center gap-1 border bg-zinc-700 p-2 rounded-md">
+                    <div className="flex items-center gap-1 border p-2 rounded-md">
                       <StarIcon />
                       <span>Premium</span>
                       <Switch checked={field.value} onCheckedChange={field.onChange} />
@@ -77,7 +77,7 @@ const [isPending, startTransition] = useTransition()
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <div className="flex items-center gap-1 border bg-zinc-700 p-2 rounded-md">
+                    <div className="flex items-center gap-1 border  p-2 rounded-md">
                       <RocketIcon />
                       <span>Publish</span>
                       <Switch checked={field.value} onCheckedChange={field.onChange} />
@@ -87,7 +87,7 @@ const [isPending, startTransition] = useTransition()
               )}
             />
           </div>
-          <Button className="flex items-center gap-2" disabled={!form.formState.isValid || isPending}><BsSave /> Save</Button>
+          <Button className="flex items-center gap-2 bg-black hover:bg-red-500" disabled={!form.formState.isValid || isPending}><BsSave /> Save</Button>
         </div>
         <FormField
           control={form.control}
@@ -102,7 +102,6 @@ const [isPending, startTransition] = useTransition()
                   </div>
                 </div>
               </FormControl>
-
               {form.getFieldState("title").invalid && form.getValues().title && <FormMessage />}
             </FormItem>
           )}
@@ -137,7 +136,7 @@ const [isPending, startTransition] = useTransition()
               <FormControl>
                 <div className={cn("p-2 w-full flex break-words gap-3", isPreview ? "divide-x-0" : "divide-x h-70vh")}>
                   <Textarea placeholder="title" {...field} className={cn("border-none text-lg font-medium leading-relaxed resize-none h-full", isPreview ? "w-0 p-0" : "w-full lg:w-1/2")} />
-                  <div className={cn("overflow-y-auto", isPreview ? "mx-auto w-full lg:w-4/5" : "w-1/2 lg:block hidden")}>
+                  <div className={cn("lg:px-10 overflow-y-auto", isPreview ? "mx-auto w-full lg:w-4/5" : "w-1/2 lg:block hidden")}>
                     <MarkdownPreview content={form.getValues().content} />
                   </div>
                 </div>

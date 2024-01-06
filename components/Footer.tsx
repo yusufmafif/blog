@@ -9,14 +9,11 @@ export default function Footer() {
             mx-auto flex justify-center md:items-end flex-col
             md:flex-row'>
                 <div className='space-y-6 w-1/2'>
-                    <div className=' w-full sm:w-96'>
-                        <h1 className='text-2xl font-bold'>Abstain.</h1>
-                    </div>
                     <div className='flex space-x-5'>
-                        <GitHubLogoIcon className='w-5 h-5'/>
-                        <LinkedInLogoIcon className='w-5 h-5'/>
-                        <TwitterLogoIcon className='w-5 h-5'/>
-                        <BsWhatsapp className='w-5 h-5'/>
+                        <GitHubLogoIcon className='w-5 h-5' />
+                        <LinkedInLogoIcon className='w-5 h-5' />
+                        <TwitterLogoIcon className='w-5 h-5' />
+                        <BsWhatsapp className='w-5 h-5' />
                     </div>
                 </div>
                 <h1>&copy; 2024 Abstain.</h1>

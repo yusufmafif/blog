@@ -9,25 +9,22 @@ export default async function HeadContent({ a }: { a?: string }) {
     return (
         <div className={a}>
             {blogs?.length! > 0 && (<div className="rounded-sm overflow-hidden bg-white shadow-sm">
-                <Link href="view.html" className="block rounded-md overflow-hidden">
+                <Link href={`/blog/${blogs![0].id}`} className="block rounded-md overflow-hidden">
                     <Image src={blogs![0].image_url}
                         className="w-full h-96 object-cover transform hover:scale-110 transition duration-500" alt='a' width={500} height={500} />
                 </Link>
                 <div className="p-4 pb-5">
                     <a href="view.html">
                         <h2
-                            className="block text-2xl font-semibold text-gray-700 hover:text-blue-500 transition font-roboto">
+                            className="block text-2xl font-semibold text-gray-700 hover:text-black transition font-roboto">
                             {blogs![0].title}
                         </h2>
                     </a>
-                    <p className="text-gray-500 text-sm mt-2">
-                        {blogs![0].title}
-                    </p>
                     <div className="mt-3 flex space-x-4">
                         <div className="flex text-gray-400 text-sm items-center">
                             Blogging Tips
                         </div>
-                        <div className="flex text-gray-400 text-sm items-center">
+                        <div className="flex text-gray-600 text-sm items-center">
                             {new Date(blogs![0].created_at).toDateString()}
                         </div>
                     </div>

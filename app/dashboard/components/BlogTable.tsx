@@ -16,7 +16,7 @@ export default async function BlogTable() {
     return (
         <div className='overflow-x-auto'>
             <div className="border bg-gradient-dark rounded-md sm:w-[900px] md:w-full">
-                <div className='grid grid-cols-5 p-5 text-gray-400 border-b'>
+                <div className='grid grid-cols-5 p-5 border-b'>
                     <h1 className='col-span-2'>Title</h1>
                     <h1>Premium</h1>
                     <h1>Publish</h1>
