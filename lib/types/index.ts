@@ -33,3 +33,10 @@ export type IUser = {
     stripe_subscription_id: string | null;
     subscription_status: boolean;
 } | null
+
+export type IProfile = {
+    id: string;
+    name: string;
+    description: string;
+    photo_url: string;
+} | null

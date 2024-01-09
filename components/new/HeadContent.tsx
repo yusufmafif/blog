@@ -14,7 +14,7 @@ export default async function HeadContent({ a }: { a?: string }) {
                         className="w-full h-96 object-cover transform hover:scale-110 transition duration-500" alt='a' width={500} height={500} />
                 </Link>
                 <div className="p-4 pb-5">
-                    <a href="view.html">
+                    <a href={`/blog/${blogs![0].id}`}>
                         <h2
                             className="block text-2xl font-semibold text-gray-700 hover:text-black transition font-roboto">
                             {blogs![0].title}

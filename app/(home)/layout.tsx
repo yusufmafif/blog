@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react'
 import Navbar from '@/components/new/Navbar'
 import MobileMenu from '@/components/new/MobileMenu'
 import Image from 'next/image'
+import ProfileSide from '@/components/new/ProfileSide'
 
 export default function layout({ children }: { children: ReactNode }) {
     return (
@@ -14,12 +15,7 @@ export default function layout({ children }: { children: ReactNode }) {
                     {children}
                 </div>
                 <div className='w-full lg:w-4/12 lg:mr-6'>
-                    <div className='flex justify-center m-2'>
-                        <Image src="/madinah.png" alt="logo" width={200} height={200}  className='rounded-full ring-1 ring-grey-500 w-32'/>
-                    </div>
-                    <div className='flex justify-center m-2'>
-                       About Me
-                    </div>
+                    <ProfileSide/>
                 </div>
             </div>
             <Footer />

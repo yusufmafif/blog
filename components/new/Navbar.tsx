@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 export default function Navbar() {
@@ -8,13 +9,13 @@ export default function Navbar() {
             <div className="container px-4 mx-auto flex justify-center items-center py-3">
 
                 <div className=" lg:flex space-x-5 md:flex md:space-x-5 hidden">
-                    <a href="#"
+                    <Link href="/"
                         className="flex items-center transition hover:text-blue-500">
                         <span className="mr-2">
                             <i className="fas fa-home"></i>
                         </span>
                         Home
-                    </a>
+                    </Link>
                     <a href="#"
                         className="flex items-center  transition hover:text-blue-500">
                         <span className="mr-2">

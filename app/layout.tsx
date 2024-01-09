@@ -39,7 +39,6 @@ export default function RootLayout({
           <main className='max-w-6xl mx-auto p-10 space-y-5'>
             <Navbar />
             {children}
-           
           </main>
           <Toaster />
         </ThemeProvider>

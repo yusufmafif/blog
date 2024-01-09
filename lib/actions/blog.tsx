@@ -101,3 +101,4 @@ export async function updateBlogDetailById(blogId: string, data: BlogFormSchemaT
         return JSON.stringify(result)
     }
 }
+
