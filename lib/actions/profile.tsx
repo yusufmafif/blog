@@ -25,11 +25,11 @@ export async function createProfile(data: any) {
 
 export async function readProfile() {
     const supabase = await createSupabaseServerClient()
-    const { data } = await supabase
+   return await supabase
         .from('profile')
         .select("*")
-        .order('name', { ascending: true })
-    return JSON.stringify(data)
+        // .order('name', { ascending: true })
+    // return JSON.stringify(data)
 }
 
 export async function updateProfile(blogId: string, data: ProfileFormSchemaType) {
