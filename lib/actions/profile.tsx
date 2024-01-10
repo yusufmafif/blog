@@ -32,15 +32,3 @@ export async function readProfile() {
     // return JSON.stringify(data)
 }
 
-export async function updateProfile(blogId: string, data: ProfileFormSchemaType) {
-    const supabase = await createSupabaseServerClient()
-    const result = await supabase
-        .from('profile')
-        .update(data)
-        .select()
-        .single()
-    // .eq('id', blogId)
-    revalidatePath(PROFILE)
-    // revalidatePath('/blog/' + blogId)
-    return JSON.stringify(result)
-}
