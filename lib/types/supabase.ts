@@ -98,6 +98,27 @@ export interface Database {
         }
         Relationships: []
       }
+      profile: {
+        Row: {
+          id: string;
+          name: string;
+          description: string;
+          photo_url: string;
+        }
+        Insert: {
+          id?: string;
+          name?: string;
+          description: string;
+          photo_url: string;
+        }
+        Update: {
+          id: string;
+          name: string;
+          description: string;
+          photo_url: string;
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

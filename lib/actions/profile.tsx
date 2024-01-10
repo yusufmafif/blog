@@ -1,6 +1,6 @@
 "use server"
 
-import { BlogFormSchemaType } from "@/app/dashboard/schema"
+import { ProfileFormSchemaType } from "@/app/dashboard/schema"
 import { revalidatePath } from "next/cache"
 import { createSupabaseServerClient } from "../supabase"
 
@@ -25,8 +25,22 @@ export async function createProfile(data: any) {
 
 export async function readProfile() {
     const supabase = await createSupabaseServerClient()
-    return supabase
+    const { data } = await supabase
         .from('profile')
         .select("*")
-        // .order('name', { ascending: true })
+        .order('name', { ascending: true })
+    return JSON.stringify(data)
+}
+
+export async function updateProfile(blogId: string, data: ProfileFormSchemaType) {
+    const supabase = await createSupabaseServerClient()
+    const result = await supabase
+        .from('profile')
+        .update(data)
+        .select()
+        .single()
+    // .eq('id', blogId)
+    revalidatePath(PROFILE)
+    // revalidatePath('/blog/' + blogId)
+    return JSON.stringify(result)
 }
