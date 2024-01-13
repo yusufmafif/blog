@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { Button } from '../ui/button';
 import { DashboardIcon, LockOpen1Icon } from '@radix-ui/react-icons';
+import { CgProfile } from "react-icons/cg";
 import { createBrowserClient } from '@supabase/ssr';
 import ManageBilling from '../stripe/ManageBilling';
 
@@ -46,6 +47,9 @@ export const Profile = () => {
                 </div>
                 {isAdmin && <Link href={'/dashboard'} className='block'>
                     <Button variant='ghost' className='w-full flex items-center justify-between'>Dashboard <DashboardIcon /></Button>
+                </Link>}
+                {isAdmin && <Link href={'/dashboard/profile/edit/9'} className='block'>
+                    <Button variant='ghost' className='w-full flex items-center justify-between'>My Profile <CgProfile /></Button>
                 </Link>}
                 {isSub && <ManageBilling />}
                     <Button variant='ghost' className='w-full flex items-center justify-between' onClick={handleLogout}>Log Out <LockOpen1Icon /></Button>

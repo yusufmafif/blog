@@ -45,7 +45,6 @@ export default function ProfileForm({ onHandleSubmit, profile }: { onHandleSubmi
       onHandleSubmit(data)
     })
   }
-  console.log(isPreview)
 
   return (
     <Form {...form}>

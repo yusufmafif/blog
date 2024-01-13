@@ -31,7 +31,7 @@ export default function Checkout() {
     }
 
     if (!user?.id) {
-        return <div className='flex items-center justify-center h-36 w-full gap-2'><LoginForm />to read</div>
+        return <div className='flex items-center justify-center h-36 w-full gap-2'><LoginForm />to comment</div>
     }
 
     return (

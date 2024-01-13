@@ -48,7 +48,6 @@ export default function BlogForm({ onHandleSubmit, blog }: { onHandleSubmit: (da
       onHandleSubmit(data)
     })
   }
-  console.log(isPreview)
 
   return (
     <Form {...form}>

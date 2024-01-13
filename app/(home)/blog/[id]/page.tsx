@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import { IBlog } from '@/lib/types';
 import BlogContent from './BlogContent';
-
+import BlogComments from './BlogComments';
 export async function generateStaticParams() {
 	const { data: blog } = await fetch(
 		process.env.SITE_URL + "/api/blog?id=" + "*"
@@ -30,12 +30,17 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 export default async function page({ params }: { params: { id: string } }) {
+
+ 
+
+
 	const { data: blog } = await fetch(process.env.SITE_URL + "/api/blog?id=" + params.id
 	).then(res => res.json()) as { data: IBlog }
 
 	if (!blog?.id) {
 		return <div>Not found</div>
 	}
+
 	return (
 		<div className="max-w-5xl mx-auto min-h-screen  pt-10 space-y-10">
 			<div className="sm:px-10 space-y-5">
@@ -58,6 +63,7 @@ export default async function page({ params }: { params: { id: string } }) {
 				/>
 			</div>
 			<BlogContent blog_id={blog.id} />
+			<BlogComments blog_id={blog.id}/>
 		</div>
 	)
 }

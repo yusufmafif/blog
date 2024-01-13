@@ -9,7 +9,7 @@ export default async function ProfileSide() {
     return (
         <div className='flex justify-center m-2'>
             {blogs?.map((blog, index) => {
-                if (index != 0) {
+                if (index != 1) {
                     return null
                 }
                 return (
@@ -17,9 +17,9 @@ export default async function ProfileSide() {
                         <div className='mb-4 text-xl font-bold'>
                             About Me
                         </div>
-                        <Image src={blog.photo_url} alt="logo" width={200} height={200} className='w-40 h-40 rounded-full ring-2 ring-gray-300' />
+                        <Image src={blog?.photo_url} alt="logo" width={200} height={200} className='w-40 h-40 rounded-full ring-2 ring-gray-300 object-cover' />
                         <p className='mt-2 font-semibold text-lg'>{blog.name}</p>
-                        <p className='text-sm'>{blog.description}</p>
+                        <p className='text-sm text-center'>{blog.description}</p>
                     </div>
                 )
             })}

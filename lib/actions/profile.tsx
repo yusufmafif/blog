@@ -6,6 +6,7 @@ import { createSupabaseServerClient } from "../supabase"
 
 
 const PROFILE = "/profile"
+const DASHBOARD = "/"
 
 export async function createProfile(data: any) {
     const supabase = await createSupabaseServerClient()
@@ -25,10 +26,30 @@ export async function createProfile(data: any) {
 
 export async function readProfile() {
     const supabase = await createSupabaseServerClient()
-   return await supabase
+    return await supabase
         .from('profile')
         .select("*")
-        // .order('name', { ascending: true })
-    // return JSON.stringify(data)
+    // .order('name', { ascending: true })
 }
 
+export async function updateProfileById(blogId: string, data: ProfileFormSchemaType) {
+    const supabase = await createSupabaseServerClient()
+    const result = await supabase
+        .from('profile')
+        .update(data)
+        .eq('id', blogId)
+    revalidatePath(DASHBOARD)
+    revalidatePath(PROFILE)
+    return JSON.stringify(result)
+}
+
+
+export async function readProfileById(profileId: string) {
+    const supabase = await createSupabaseServerClient()
+
+    return supabase
+        .from('profile')
+        .select("*")
+        .eq('id', profileId)
+        .single()
+}

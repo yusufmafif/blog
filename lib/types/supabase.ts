@@ -112,10 +112,31 @@ export interface Database {
           photo_url: string;
         }
         Update: {
-          id: string;
-          name: string;
+          id?: string;
+          name?: string;
           description: string;
           photo_url: string;
+        }
+        Relationships: []
+      }
+      blog_comments: {
+        Row: {
+          id: string;
+          created_at: string;
+          comment: string;
+          name: string;
+        }
+        Insert: {
+          id?: string;
+          created_at?: string;
+          name: string;
+          comment: string;
+        }
+        Update: {
+          id: string;
+          created_at: string;
+          name: string;
+          comment: string;
         }
         Relationships: []
       }
