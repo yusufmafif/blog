@@ -121,8 +121,8 @@ export interface Database {
       }
       blog_comments: {
         Row: {
-          id: string;
-          created_at: string;
+          id?: string;
+          created_at?: string;
           comment: string;
           name: string;
         }
@@ -133,8 +133,8 @@ export interface Database {
           comment: string;
         }
         Update: {
-          id: string;
-          created_at: string;
+          id?: string;
+          created_at?: string;
           name: string;
           comment: string;
         }
