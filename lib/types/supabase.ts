@@ -137,7 +137,7 @@ export interface Database {
           created_at?: string;
           name: string;
           comment: string;
-        }
+        } 
         Relationships: []
       }
     }

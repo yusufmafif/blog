@@ -46,7 +46,7 @@ export default function BlogComments({ blog_id }: { blog_id: string }) {
 
 
     const [id, setId] = useState<{
-        id: string;
+        id: string | undefined;
     } | null>()
 
     const [comment, setComment] = useState('')
