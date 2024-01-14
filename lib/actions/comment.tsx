@@ -5,8 +5,7 @@ import { revalidatePath } from "next/cache"
 import { createSupabaseServerClient } from "../supabase"
 
 
-const PROFILE = "/profile"
-const DASHBOARD = "/"
+const PROFILE = "/blog/[...id]"
 
 export async function createComment(data: CommentFormSchemaType) {
     const supabase = await createSupabaseServerClient()
@@ -21,4 +20,14 @@ export async function createComment(data: CommentFormSchemaType) {
         revalidatePath(PROFILE)
         return JSON.stringify(resultBlog)
     }
+}
+
+export async function readBlogCommentById(id: string) {
+    const supabase = await createSupabaseServerClient()
+
+    return supabase
+        .from('blog_comments')
+        .select("*")
+        .eq('id', id)
+        .order('created_at', { ascending: true })
 }
