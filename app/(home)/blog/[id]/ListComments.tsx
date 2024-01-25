@@ -2,16 +2,15 @@ import React from 'react'
 import { readBlogCommentById } from '@/lib/actions/comment'
 
 export default async function ListComments({ blog_id }: { blog_id: string }) {
-
     const { data: blogs } = await readBlogCommentById(blog_id);
-
-
     return (
-
         <div>
+
+            <h2 className='font-light text-xl justify-center flex'>Comment Section</h2>
             {blogs?.map((blog, index) => (
                 <div key={index} className='m-8'>
-                    <hr className='p-2'/>
+
+                    <hr className='p-2' />
                     <div className="flex space-x-3 justify-between">
                         <div className="">{blog.name}</div>
                         <div className="">

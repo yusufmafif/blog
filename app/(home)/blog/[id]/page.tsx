@@ -64,7 +64,6 @@ export default async function page({ params }: { params: { id: string } }) {
 				/>
 			</div>
 			<BlogContent blog_id={blog.id} />
-			<h2 className='font-light text-xl justify-center flex pt-5'>Comment Section</h2>
 			<ListComments blog_id={blog.id}/>
 			<BlogComments blog_id={blog.id}/>
 		</div>

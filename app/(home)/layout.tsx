@@ -5,6 +5,7 @@ import MobileMenu from '@/components/new/MobileMenu'
 import Image from 'next/image'
 import ProfileSide from '@/components/new/ProfileSide'
 
+
 export default function layout({ children }: { children: ReactNode }) {
     return (
         <div className="space-y-5">

@@ -6,6 +6,7 @@ import { cookies } from "next/headers"
 import { Database } from "../types/supabase"
 import { revalidatePath } from "next/cache"
 import { createSupabaseServerClient } from "../supabase"
+import { title } from "process"
 
 
 const DASHBOARD = "/dashboard"
@@ -39,6 +40,14 @@ export async function readBlog() {
         .select("*")
         .eq('is_published', true)
         .order('created_at', { ascending: false })
+}
+
+export async function readBlogbyQuery(data: string) {
+    const supabase = await createSupabaseServerClient()
+    return supabase
+        .from('blog')
+        .select()
+        .ilike('title', `%${data}%`)
 }
 
 export async function readBlogAdmin() {
