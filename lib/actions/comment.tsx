@@ -7,7 +7,7 @@ import { createSupabaseServerClient } from "../supabase"
 
 const PROFILE = "/blog/[...id]"
 
-export async function createComment(data: CommentFormSchemaType) {
+export async function createComment(data: any) {
     const supabase = await createSupabaseServerClient()
     const resultBlog = await supabase
         .from('blog_comments')
@@ -28,7 +28,7 @@ export async function readBlogCommentById(id: string) {
     return supabase
         .from('blog_comments')
         .select("*")
-        .eq('id', id)
+        // .eq('id', id)
         .order('created_at', { ascending: true })
 }
 

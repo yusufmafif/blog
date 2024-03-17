@@ -32,6 +32,8 @@ export async function readProfile() {
     // .order('name', { ascending: true })
 }
 
+
+
 export async function updateProfileById(blogId: string, data: ProfileFormSchemaType) {
     const supabase = await createSupabaseServerClient()
     const result = await supabase
