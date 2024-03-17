@@ -28,6 +28,7 @@ export default async function ListComments({ blog_id }: { blog_id: string }) {
                         </div>
                     </div>
                     <div className="font-light p-2">{blog.comment}</div>
+                    <DeleteComment/>
                     {blog.user_id ? <DeleteComment blog={blog.uuid} /> : null}
                 </div>
             ))}

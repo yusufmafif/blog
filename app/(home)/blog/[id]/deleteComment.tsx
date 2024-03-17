@@ -5,14 +5,15 @@ import { deleteCommentById } from '@/lib/actions/comment'
 
 const DeleteComment = (blog: any) => {
 
-    const deleteComment = async (blog : any) => {
-       await deleteCommentById(blog)
+    const deleteComment = async (blog: any) => {
+        // await deleteCommentById(blog)
+        alert('test')
     }
 
 
     return (
         <div>
-      <form onSubmit={deleteComment}><Button className='flex items-center gap-2'>Delete</Button></form>
+            <form onSubmit={deleteComment}><Button className='flex items-center gap-2'>Delete</Button></form>
         </div>
     )
 }
