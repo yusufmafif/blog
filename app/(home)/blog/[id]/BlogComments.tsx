@@ -88,7 +88,7 @@ export default function BlogComments({ blog_id }: { blog_id: string }) {
     return (
         <Form {...form}>
             {user && (
-                <form onSubmit={form.handleSubmit(data => onSubmit({ id: id?.id, name: user?.display_name, ...data }))} className="w-2/3 space-y-6">
+                <form onSubmit={form.handleSubmit(data => onSubmit({ id: id?.id, name: user?.display_name, user_id: user?.id, ...data }))} className="w-2/3 space-y-6">
                     <FormField
                         control={form.control}
                         name="comment"
