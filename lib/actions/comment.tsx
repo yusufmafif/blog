@@ -28,7 +28,7 @@ export async function readBlogCommentById(id: string) {
     return supabase
         .from('blog_comments')
         .select("*")
-        // .eq('id', id)
+        .eq('id', id)
         .order('created_at', { ascending: true })
 }
 
