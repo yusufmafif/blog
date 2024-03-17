@@ -126,6 +126,7 @@ export interface Database {
           comment: string;
           name: string;
           user_id: string;
+          uuid: string;
         }
         Insert: {
           id?: string;
@@ -133,6 +134,7 @@ export interface Database {
           name: string;
           comment: string;
           user_id: string;
+          uuid: string;
         }
         Update: {
           id?: string;
@@ -140,6 +142,7 @@ export interface Database {
           name: string;
           comment: string;
           user_id: string;
+          uuid: string;
         } 
         Relationships: []
       }

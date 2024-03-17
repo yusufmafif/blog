@@ -32,16 +32,16 @@ export async function readBlogCommentById(id: string) {
         .order('created_at', { ascending: true })
 }
 
-export async function deleteCommentById(id: string) {
+export async function deleteCommentById(blog: string) {
     const supabase = await createSupabaseServerClient()
-    const revalidate = "/blog/" + id
-   const result = await supabase
+    const revalidate = "/blog/" + blog
+    const result = await supabase
         .from('blog_comments')
         .delete()
-        .eq('user_id', id)
+        .eq('uuid', blog)
         .select()
-        revalidatePath(revalidate)
-        return JSON.stringify(result)
+    // revalidatePath(revalidate)
+    return JSON.stringify(result)
 }
 
 // export async function deleteBlogById(blogId: string) {
