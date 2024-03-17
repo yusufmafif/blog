@@ -31,3 +31,26 @@ export async function readBlogCommentById(id: string) {
         .eq('id', id)
         .order('created_at', { ascending: true })
 }
+
+export async function deleteCommentById(id: string) {
+    const supabase = await createSupabaseServerClient()
+    const revalidate = "/blog/" + id
+   const result = await supabase
+        .from('blog_comments')
+        .delete()
+        .eq('user_id', id)
+        .select()
+        revalidatePath(revalidate)
+        return JSON.stringify(result)
+}
+
+// export async function deleteBlogById(blogId: string) {
+//     const supabase = await createSupabaseServerClient()
+//     const result = await supabase
+//         .from('blog')
+//         .delete()
+//         .eq('id', blogId)
+//     revalidatePath(DASHBOARD)
+//     revalidatePath('/blog/' + blogId)
+//     return JSON.stringify(result)
+// }

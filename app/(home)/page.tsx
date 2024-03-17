@@ -11,7 +11,7 @@ export default function Page() {
   const { searchQuery, setSearchQuery } = useSearchStore();
 
 
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,10 +28,10 @@ export default function Page() {
     };
     fetchData();
   }, [searchQuery, setSearchQuery]);
-  
 
 
- 
+
+
   return (
     <div >
       <div className="w-full p-0">
@@ -61,7 +61,7 @@ export default function Page() {
 
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 p-2 xl:p-2">
-        {blogs?.map((blog : any, index: number) => {
+        {blogs?.map((blog: any, index: number) => {
           if (index === 0) {
             return null;
           }

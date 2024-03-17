@@ -1,15 +1,15 @@
 import React from 'react'
 import { readBlogCommentById } from '@/lib/actions/comment'
+import  DeleteComment  from "./deleteComment";
 
 export default async function ListComments({ blog_id }: { blog_id: string }) {
     const { data: blogs } = await readBlogCommentById(blog_id);
     return (
         <div>
-
             <h2 className='font-light text-xl justify-center flex'>Comment Section</h2>
             {blogs?.map((blog, index) => (
-                <div key={index} className='m-8'>
 
+                <div key={index} className='m-8'>
                     <hr className='p-2' />
                     <div className="flex space-x-3 justify-between">
                         <div className="">{blog.name}</div>
@@ -28,6 +28,7 @@ export default async function ListComments({ blog_id }: { blog_id: string }) {
                         </div>
                     </div>
                     <div className="font-light p-2">{blog.comment}</div>
+                    {blog.user_id ? <DeleteComment blog={blog.user_id} /> : null}
                 </div>
             ))}
         </div>

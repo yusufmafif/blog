@@ -49,12 +49,13 @@ export default async function BlogTable() {
 const Actions = ({ id }: { id: string }) => {
     return (
         <div className='flex items-center gap-2 flex-wrap md:flex-row'>
-               <Link href={"/blog/"+ id}>
-            <Button variant='outline' className='flex items-center gap-2'><EyeOpenIcon /> View</Button></Link>
+            <Link href={"/blog/" + id}>
+                <Button variant='outline' className='flex items-center gap-2'><EyeOpenIcon /> View</Button>
+            </Link>
             <DeleteAlert blogId={id} />
-            <Link href={"/dashboard/blog/edit/"+ id}>
-            <Button variant='outline' className='flex items-center gap-2'><Pencil1Icon /> Edit</Button></Link>
-
+            <Link href={"/dashboard/blog/edit/" + id}>
+                <Button variant='outline' className='flex items-center gap-2'><Pencil1Icon /> Edit</Button>
+            </Link>
         </div>
     )
 }

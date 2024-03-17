@@ -125,18 +125,21 @@ export interface Database {
           created_at?: string;
           comment: string;
           name: string;
+          user_id: string;
         }
         Insert: {
           id?: string;
           created_at?: string;
           name: string;
           comment: string;
+          user_id: string;
         }
         Update: {
           id?: string;
           created_at?: string;
           name: string;
           comment: string;
+          user_id: string;
         } 
         Relationships: []
       }
