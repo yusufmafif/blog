@@ -6,15 +6,16 @@ import { useUser } from "@/lib/store/user";
 
 const DeleteComment = (blog: any) => {
     const user = useUser((state) => state.user)
-    const deleteComment = async ({blog, e}: any) => {
-        e.preventDefault()
-        await deleteCommentById(blog.blog.user_id)
+    const deleteComment = (blog: any) => {
+        deleteCommentById(blog.blog.uuid)
+    //  alert(blog.blog.uuid)
+    //   alert(blog.blog.user_id)
     }
-    console.log(blog.blog.uuid)
-    const isAuthorized = user?.id === blog.blog.user_id
+    // const isAuthorized = user?.id === blog.blog.user_id
+    const isAuthorized = "76d0ed3c-caad-4ab4-ba09-ebb1f367abed" === blog.blog.user_id
     return (
         <div>
-            {isAuthorized && <form onSubmit={deleteComment}><Button className='flex items-center gap-2'>Delete</Button></form>}
+            {isAuthorized && <form ><Button onClick={() => deleteComment(blog)} className='flex items-center gap-2'>Delete</Button></form>}
         </div>
     )
 }

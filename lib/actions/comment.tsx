@@ -34,12 +34,12 @@ export async function readBlogCommentById(id: string) {
 
 export async function deleteCommentById(blog: string) {
     const supabase = await createSupabaseServerClient()
-    const result = await supabase
+
+    const { error } = await supabase
         .from('blog_comments')
         .delete()
         .eq('uuid', blog)
-        return JSON.stringify(result)
-  
+
 }
 
 // export async function deleteBlogById(blogId: string) {
