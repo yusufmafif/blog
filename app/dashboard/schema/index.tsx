@@ -48,6 +48,7 @@ export const ProfileFormSchema = z.object({
     comment: z.string().min(10, {
       message: "Comment must be at least 2 characters.",
     }),
+    user_id: z.any(),
   })
 
   export type CommentFormSchemaType = z.infer<typeof CommentFormSchema>
