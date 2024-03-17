@@ -7,7 +7,6 @@ const DeleteComment = (blog: any) => {
 
     const deleteComment = async (blog : string) => {
        await deleteCommentById(blog)
-       alert('r')
     }
 
 
