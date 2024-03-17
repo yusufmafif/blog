@@ -6,7 +6,8 @@ import { useUser } from "@/lib/store/user";
 
 const DeleteComment = (blog: any) => {
     const user = useUser((state) => state.user)
-    const deleteComment = async (blog: any) => {
+    const deleteComment = async ({blog, e}: any) => {
+        e.preventDefault()
         await deleteCommentById(blog.blog.user_id)
     }
     console.log(blog.blog.uuid)
