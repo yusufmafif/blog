@@ -34,14 +34,12 @@ export async function readBlogCommentById(id: string) {
 
 export async function deleteCommentById(blog: string) {
     const supabase = await createSupabaseServerClient()
-    const revalidate = "/blog/" + blog
     const result = await supabase
         .from('blog_comments')
         .delete()
         .eq('uuid', blog)
-        .select()
-    // revalidatePath(revalidate)
-    return JSON.stringify(result)
+        return JSON.stringify(result)
+  
 }
 
 // export async function deleteBlogById(blogId: string) {
