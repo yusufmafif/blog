@@ -44,7 +44,6 @@ export default function BlogContent({ blog_id }: { blog_id: string }) {
     if (isLoading) {
         return <BlogLoading />
     }
-
     return (
         <div>
             <MarkdownPreview className='sm:px-10' content={blog?.content || ''} />

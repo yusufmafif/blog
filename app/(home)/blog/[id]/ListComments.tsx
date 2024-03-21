@@ -1,11 +1,17 @@
 import React from 'react'
 import { readBlogCommentById } from '@/lib/actions/comment'
-import  DeleteComment  from "./deleteComment";
-
+import DeleteComment from "./deleteComment";
+import { cookies } from 'next/headers'
 
 export default async function ListComments({ blog_id }: { blog_id: string }) {
     const { data: blogs } = await readBlogCommentById(blog_id);
-   
+    const cookieStore = cookies()
+    const test = cookieStore.getAll()
+    // console.log(cookieStore.getAll())
+    const nametest = cookieStore.get("afif")
+    console.log(nametest)
+    console.log(nametest)
+
 
 
     return (
@@ -32,10 +38,12 @@ export default async function ListComments({ blog_id }: { blog_id: string }) {
                         </div>
                     </div>
                     <div className="font-light p-2">{blog.comment}</div>
-                 
-                   <DeleteComment blog={blog} />
+
+                    <DeleteComment blog={blog} />
                 </div>
             ))}
+            {/* <div>{test.map((item) => <div key={item.name}>{item.value}</div>)}</div> */}
         </div>
     )
 }
+

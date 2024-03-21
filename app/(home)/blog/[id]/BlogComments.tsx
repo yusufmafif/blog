@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { createBrowserClient } from '@supabase/ssr'
 import { Database } from '@/lib/types/supabase'
 import { useUser } from '@/lib/store/user'
-import { createComment } from '@/lib/actions/comment'
+import { createComment, deleteCommentById } from '@/lib/actions/comment'
 import { CommentFormSchemaType } from '@/app/dashboard/schema'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -52,6 +52,10 @@ export default function BlogComments({ blog_id }: { blog_id: string }) {
             .eq("id", blog_id)
             .single()
         setId(data)
+    }
+
+    const test = async () => {
+        await deleteCommentById("77cad0bb-a226-47d0-a2d2-831bae5cbefd")
     }
 
     useEffect(() => {

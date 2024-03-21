@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 
 export default async function page({ params }: { params: { id: string } }) {
 
- 
+
 
 
 	const { data: blog } = await fetch(process.env.SITE_URL + "/api/blog?id=" + params.id

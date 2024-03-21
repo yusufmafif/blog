@@ -39,7 +39,7 @@ export async function deleteCommentById(blog: string) {
         .from('blog_comments')
         .delete()
         .eq('uuid', blog)
-
+        revalidatePath(PROFILE)
 }
 
 // export async function deleteBlogById(blogId: string) {

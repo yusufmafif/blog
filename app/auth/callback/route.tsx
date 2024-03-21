@@ -27,6 +27,7 @@ export async function GET(request: Request) {
         },
       }
     )
+    cookieStore.set("afif", "313")
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`)
